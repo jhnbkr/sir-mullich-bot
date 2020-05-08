@@ -1,3 +1,4 @@
+import http
 import os
 import random
 
@@ -40,6 +41,15 @@ async def roll(ctx, dice: str):
 
     result = ", ".join(str(random.randint(1, limit)) for r in range(rolls))
     await ctx.send(result)
+
+
+@bot.command()
+async def insult(ctx):
+    connection = http.client.HTTPSConnection("insult.mattbas.org")
+    connection.request("GET", "/api/insult")
+    response = connection.getresponse()
+    data = response.read()
+    await ctx.send(data.decode("utf-8"))
 
 
 bot.run(TOKEN)
