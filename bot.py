@@ -1,4 +1,5 @@
 import http
+import json
 import os
 import random
 
@@ -48,8 +49,17 @@ async def insult(ctx):
     connection = http.client.HTTPSConnection("insult.mattbas.org")
     connection.request("GET", "/api/insult")
     response = connection.getresponse()
-    data = response.read()
-    await ctx.send(data.decode("utf-8"))
+    data = response.read().decode("utf-8")
+    await ctx.send(data)
+
+
+@bot.command()
+async def chucknorris(ctx):
+    connection = http.client.HTTPSConnection("api.chucknorris.io")
+    connection.request("GET", "/jokes/random")
+    response = connection.getresponse()
+    data = json.loads(response.read().decode("utf-8"))
+    await ctx.send(data.get("value"))
 
 
 bot.run(TOKEN)
