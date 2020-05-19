@@ -67,8 +67,8 @@ async def math(ctx):
     connection = http.client.HTTPConnection("numbersapi.com")
     connection.request("GET", "/random/trivia")
     response = connection.getresponse()
-    data = json.loads(response.read().decode("utf-8"))
-    await ctx.send(data.get("value"))
+    data = response.read().decode("utf-8")
+    await ctx.send(data)
 
 
 bot.run(TOKEN)
