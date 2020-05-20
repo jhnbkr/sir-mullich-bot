@@ -60,7 +60,7 @@ async def compliment(ctx):
     response = connection.getresponse()
     data = json.loads(response.read().decode("utf-8"))
     result = data.get("compliment").title()
-    if not result.endswith([".", "!", "?"]):
+    if not result.endswith((".", "!", "?")):
         result += "."
     await ctx.send(result)
 
