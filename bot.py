@@ -99,8 +99,7 @@ async def taco(ctx):
     connection.request("GET", "/random?full-taco=true")
     response = connection.getresponse()
     data = json.loads(response.read().decode("utf-8"))
-    slip = data.get("slip")
-    await ctx.send(slip.get("advice"))
+    await ctx.send(data.get("recipe"))
 
 
 @bot.command()
