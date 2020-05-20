@@ -77,7 +77,7 @@ async def chucknorris(ctx):
 @bot.command()
 async def trump(ctx):
     connection = http.client.HTTPSConnection("tronalddump.io")
-    connection.request("GET", "/random/quote")
+    connection.request("GET", "/random/quote", headers={"Accept": "*/*"})
     response = connection.getresponse()
     data = json.loads(response.read().decode("utf-8"))
     await ctx.send(data.get("value"))
@@ -96,7 +96,7 @@ async def advice(ctx):
 @bot.command()
 async def taco(ctx):
     connection = http.client.HTTPSConnection("taco-randomizer.herokuapp.com")
-    connection.request("GET", "/random?full-taco=true")
+    connection.request("GET", "/random/?full-taco=true")
     response = connection.getresponse()
     data = json.loads(response.read().decode("utf-8"))
     await ctx.send(data.get("recipe"))
