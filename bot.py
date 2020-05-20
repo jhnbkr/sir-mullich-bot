@@ -54,12 +54,53 @@ async def insult(ctx):
 
 
 @bot.command()
+async def compliment(ctx):
+    connection = http.client.HTTPSConnection("complimentr.com")
+    connection.request("GET", "/api")
+    response = connection.getresponse()
+    data = json.loads(response.read().decode("utf-8"))
+    result = data.get("compliment").title()
+    if not result.endwitt([".", "!", "?"]):
+        result += "."
+    await ctx.send(result)
+
+
+@bot.command()
 async def chucknorris(ctx):
     connection = http.client.HTTPSConnection("api.chucknorris.io")
     connection.request("GET", "/jokes/random")
     response = connection.getresponse()
     data = json.loads(response.read().decode("utf-8"))
     await ctx.send(data.get("value"))
+
+
+@bot.command()
+async def trump(ctx):
+    connection = http.client.HTTPSConnection("tronalddump.io")
+    connection.request("GET", "/random/quote")
+    response = connection.getresponse()
+    data = json.loads(response.read().decode("utf-8"))
+    await ctx.send(data.get("value"))
+
+
+@bot.command()
+async def advice(ctx):
+    connection = http.client.HTTPSConnection("api.adviceslip.com")
+    connection.request("GET", "/advice")
+    response = connection.getresponse()
+    data = json.loads(response.read().decode("utf-8"))
+    slip = data.get("slip")
+    await ctx.send(slip.get("advice"))
+
+
+@bot.command()
+async def taco(ctx):
+    connection = http.client.HTTPSConnection("taco-randomizer.herokuapp.com")
+    connection.request("GET", "/random?full-taco=true")
+    response = connection.getresponse()
+    data = json.loads(response.read().decode("utf-8"))
+    slip = data.get("slip")
+    await ctx.send(slip.get("advice"))
 
 
 @bot.command()
