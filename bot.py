@@ -4,6 +4,7 @@ import os
 import random
 
 import numpy as np
+
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -100,6 +101,15 @@ async def taco(ctx):
     response = connection.getresponse()
     data = json.loads(response.read().decode("utf-8"))
     await ctx.send(data.get("recipe"))
+
+
+@bot.command()
+async def joke(ctx):
+    connection = http.client.HTTPSConnection("icanhazdadjoke.com")
+    connection.request("GET", "/", headers={"Accept": "application/json"})
+    response = connection.getresponse()
+    data = json.loads(response.read().decode("utf-8"))
+    await ctx.send(data.get("joke"))
 
 
 @bot.command()
