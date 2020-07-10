@@ -121,4 +121,16 @@ async def math(ctx):
     await ctx.send(data)
 
 
+@bot.command()
+async def piersblowsdonkeysinhissparetime(ctx):
+    api_key = "cXMH5UVWSufhjAPppUd63yIjFtjA1CbU"
+    tag = random.choice(["mrbean"])
+
+    connection = http.client.HTTPSConnection("api.giphy.com")
+    connection.request("GET", f"/v1/gifs/random?api_key={api_key}&tag={tag}")
+    response = connection.getresponse()
+    data = json.loads(response.read().decode("utf-8"))
+    await ctx.send(data.get("url"))
+
+
 bot.run(TOKEN)
