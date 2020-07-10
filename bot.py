@@ -129,7 +129,7 @@ async def piersblowsdonkeysinhissparetime(ctx):
     connection = http.client.HTTPSConnection("api.giphy.com")
     connection.request("GET", f"/v1/gifs/random?api_key={api_key}&tag={tag}")
     response = connection.getresponse()
-    data = json.loads(response.read().decode("utf-8"))
+    data = json.loads(response.read().decode("utf-8")).get("data")
     await ctx.send(data.get("url"))
 
 
