@@ -8,6 +8,8 @@ import numpy as np
 from discord.ext import commands
 from dotenv import load_dotenv
 
+from utils import get_random_gif
+
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
@@ -123,14 +125,15 @@ async def math(ctx):
 
 @bot.command()
 async def piersblowsdonkeysinhissparetime(ctx):
-    api_key = "cXMH5UVWSufhjAPppUd63yIjFtjA1CbU"
-    tag = random.choice(["mrbean"])
+    await ctx.send(get_random_gif("mrbean"))
 
-    connection = http.client.HTTPSConnection("api.giphy.com")
-    connection.request("GET", f"/v1/gifs/random?api_key={api_key}&tag={tag}")
-    response = connection.getresponse()
-    data = json.loads(response.read().decode("utf-8")).get("data")
-    await ctx.send(data.get("url"))
 
+@bot.command()
+async def moore(ctx):
+    await ctx.send(get_random_gif("jesus"))
+
+@bot.command()
+async def fart(ctx):
+    await ctx.send("*toot*")
 
 bot.run(TOKEN)
