@@ -130,7 +130,7 @@ async def piersblowsdonkeysinhissparetime(ctx):
 
 @bot.command()
 async def moore(ctx):
-    await ctx.send(get_random_gif("jesus"))
+    await ctx.send(get_random_gif("fart"))
 
 
 @bot.command()
