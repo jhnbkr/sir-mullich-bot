@@ -132,8 +132,15 @@ async def piersblowsdonkeysinhissparetime(ctx):
 async def moore(ctx):
     await ctx.send(get_random_gif("jesus"))
 
+
 @bot.command()
 async def fart(ctx):
     await ctx.send("*toot*")
+
+
+@bot.command()
+async def cincinnatibowtie(ctx):
+    await ctx.send("https://johnbaker.s3.amazonaws.com/images/moore.jpg")
+
 
 bot.run(TOKEN)
