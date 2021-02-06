@@ -22,6 +22,14 @@ async def choose(ctx, *choices: str):
 
 
 @bot.command()
+async def repeat(ctx, count: int, *args: str):
+    count = max(1, min(count, 10))
+    output = " ".join(args)
+    for i in range(count):
+        await ctx.send(output)
+
+
+@bot.command()
 async def team(ctx, teams_count: int, *names: str):
     names = list(names)
     random.shuffle(names)
