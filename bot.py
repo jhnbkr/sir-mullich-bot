@@ -1,3 +1,4 @@
+import asyncio
 import http
 import json
 import os
@@ -27,7 +28,8 @@ async def repeat(ctx, count: int, *args: str):
     count = max(1, min(count, limit))
     output = " ".join(args)
     for i in range(count):
-        await ctx.send(output)
+        ctx.send(output)
+        await asyncio.sleep(0.1)
 
 
 @bot.command()
