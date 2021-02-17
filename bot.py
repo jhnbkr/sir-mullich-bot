@@ -23,7 +23,7 @@ async def choose(ctx, *choices: str):
 
 @bot.command()
 async def repeat(ctx, count: int, *args: str):
-    limit = os.getenv("REPEAT_LIMIT", 10)
+    limit = int(os.getenv("REPEAT_LIMIT", 10))
     count = max(1, min(count, limit))
     output = " ".join(args)
     for i in range(count):
