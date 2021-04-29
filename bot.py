@@ -4,7 +4,6 @@ import os
 import random
 
 import numpy as np
-
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -149,6 +148,11 @@ async def fart(ctx):
 @bot.command()
 async def cincinnatibowtie(ctx):
     await ctx.send("https://johnbaker.s3.amazonaws.com/images/moore.jpg")
+
+
+@bot.command()
+async def pizza(ctx):
+    await ctx.send(get_random_gif("pizza"))
 
 
 bot.run(TOKEN)
