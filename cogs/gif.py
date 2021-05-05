@@ -42,7 +42,7 @@ class Gif(commands.Cog):
     async def moore(self, ctx):
         await ctx.send("https://johnbaker.s3.amazonaws.com/images/moore.jpg")
 
-    @commands.command(help="NICCE")
+    @commands.command(help="NICCCE")
     async def nice(self, ctx):
         await ctx.send(self.get_gif("pCO5tKdP22RC8"))
 
