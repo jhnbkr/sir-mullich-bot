@@ -7,7 +7,7 @@ import settings
 
 
 class Utility(commands.Cog):
-    @commands.command(help="Choose a random choice")
+    @commands.command(help="Make a random choice")
     async def choose(self, ctx, *choices: str):
         await ctx.send(random.choice(choices))
 
