@@ -10,7 +10,7 @@ class Quote(commands.Cog):
         response = client.get("https://api.chucknorris.io/jokes/random")
         await ctx.send(response.get("value"))
 
-    @commands.command(help="bad")
+    @commands.command(help="Bad")
     async def compliment(self, ctx):
         client = HTTPClient()
         response = client.get("https://complimentr.com/api")
