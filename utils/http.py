@@ -1,6 +1,6 @@
 import json
 import urllib.parse
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta
 from enum import auto, Enum
 
 import requests.exceptions
@@ -85,7 +85,7 @@ class HTTPClient(metaclass=ABCMeta):
 
     @property
     def base_url(self):
-        pass
+        return ""
 
     @property
     def injected_headers(self):
