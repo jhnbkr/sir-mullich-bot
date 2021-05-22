@@ -17,7 +17,7 @@ class GiphyClient(HTTPClient):
         return {**self.auth_params, **params}
 
 
-class Gif(commands.Cog):
+class Media(commands.Cog):
     def __init__(self, *args, **kwargs):
         self.giphy = GiphyClient()
         super().__init__(*args, **kwargs)
@@ -53,3 +53,7 @@ class Gif(commands.Cog):
     @commands.command(help="T asked for pizza")
     async def pizza(self, ctx):
         await ctx.send(self.get_random_gif("pizza"))
+
+    @commands.command(help="A refreshing warm Busch")
+    async def warmbusch(self, ctx):
+        await ctx.send("https://warmbusch.com")
