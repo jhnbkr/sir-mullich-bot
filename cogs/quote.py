@@ -1,9 +1,10 @@
 from discord.ext import commands
 
+from cogs import Cog
 from utils.http import HTTPClient
 
 
-class Quote(commands.Cog):
+class Quote(Cog):
     @commands.command(help="Chuck Norris counted to infinity... twice.")
     async def chucknorris(self, ctx):
         client = HTTPClient()

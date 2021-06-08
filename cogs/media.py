@@ -1,6 +1,7 @@
 from discord.ext import commands
 
 import settings
+from cogs import Cog
 from utils.http import HTTPClient
 
 
@@ -17,10 +18,10 @@ class GiphyClient(HTTPClient):
         return {**self.auth_params, **params}
 
 
-class Media(commands.Cog):
+class Media(Cog):
     def __init__(self, *args, **kwargs):
-        self.giphy = GiphyClient()
         super().__init__(*args, **kwargs)
+        self.giphy = GiphyClient()
 
     def get_gif(self, id):
         response = self.giphy.get(

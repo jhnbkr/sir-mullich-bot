@@ -4,9 +4,10 @@ import numpy as np
 from discord.ext import commands
 
 import settings
+from cogs import Cog
 
 
-class Utility(commands.Cog):
+class Utility(Cog):
     @commands.command(help="Make a random choice")
     async def choose(self, ctx, *choices: str):
         await ctx.send(random.choice(choices))
