@@ -20,4 +20,5 @@ class Events(Cog):
             return
 
         if self.contains_moore(message):
-            await message.channel.send("*fart*")
+            pass
+            # await message.channel.send("*fart*")
