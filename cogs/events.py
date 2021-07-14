@@ -34,4 +34,6 @@ class Events(Cog):
             client = HTTPClient()
             response = client.get("https://issmittyworking.com/api/schedule/")
             is_working = response.get("is_working", False)
-            await message.channel.send("Yes" if is_working else "No")
+            await message.channel.send(
+                "Smitty is working" if is_working else "Smitty is not working"
+            )
