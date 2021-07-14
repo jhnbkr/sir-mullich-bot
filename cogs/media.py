@@ -58,3 +58,7 @@ class Media(Cog):
     @commands.command(help="A refreshing warm Busch")
     async def warmbusch(self, ctx):
         await ctx.send("https://warmbusch.com")
+
+    @commands.command(help="Sir Mullich has his eye on T")
+    async def t(self, ctx):
+        await ctx.send(self.get_gif("ZKrIYV3oIzIL6"))
