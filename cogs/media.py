@@ -47,6 +47,10 @@ class Media(Cog):
     async def nice(self, ctx):
         await ctx.send(self.get_gif("pCO5tKdP22RC8"))
 
+    @commands.command(help="What next, an actual slap in the face?")
+    async def slap(self, ctx):
+        await ctx.send(self.get_random_gif("slap"))
+
     @commands.command(help="As is tradition")
     async def piersblowsdonkeysinhissparetime(self, ctx):
         await ctx.send(self.get_random_gif("donkey"))
